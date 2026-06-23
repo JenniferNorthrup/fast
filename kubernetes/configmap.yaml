@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fastapi-config
+data:
+  POSTGRES_HOST: "<RDS_ENDPOINT>"
+  POSTGRES_DB: "appdb"
+  POSTGRES_USER: "appuser"
+
+  REDIS_HOST: "<REDIS_ENDPOINT>"
+  REDIS_PORT: "6379"
