@@ -1,10 +1,8 @@
-version: "3.9"
-
 services:
 
   api:
-    build: ./app
-    container_name: fastapi-api
+    build: .
+    container_name: fast
     ports:
       - "8000:8000"
     depends_on:
@@ -16,10 +14,8 @@ services:
       POSTGRES_DB: appdb
       POSTGRES_USER: appuser
       POSTGRES_PASSWORD: apppass
-
       REDIS_HOST: redis
       REDIS_PORT: 6379
-
     volumes:
       - ./app:/app
 
