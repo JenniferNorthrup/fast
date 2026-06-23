@@ -1,0 +1,29 @@
+# ---------- Builder stage ----------
+FROM python:3.11-slim AS builder
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir --prefix=/install -r requirements.txt
+
+# ---------- Runtime stage ----------
+FROM python:3.11-slim
+WORKDIR /app
+
+# Copy installed dependencies from builder
+COPY --from=builder /install /usr/local
+
+# Copy application code
+COPY ./app ./app
+
+# Environment variables (typical in ECS/EKS)
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    PORT=8000
+
+EXPOSE 8000
+
+# Production server (important difference from dev)
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload"]
+#CMD ["gunicorn", "app.main:app", \
+#     "-k", "uvicorn.workers.UvicornWorker", \
+#     "-w", "2", \
+#     "-b", "0.0.0.0:8000"]
