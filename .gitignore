@@ -1,0 +1,49 @@
+#IDE
+.idea/
+
+# Logs
+*.log
+
+#Python
+__pycache__/
+*.py
+.venv/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Environmental Variables
+.env
+.env.*
+!.env.example
+
+# local overrides
+*.local
+
+# Docker
+docker-compose.override.yml
+
+# Terraform
+*.tfstate
+*.tfstate.*
+crash.log
+.terraform/
+.terraform.lock.hcl
+override.tf
+override.tf.json
+*.tfplan
+
+# DB data
+pgdata/
+redis-data/
+
+# AWS creds
+.aws/
+aws-credentials
+
+# Misc
+.DS_Store
+Thumbs.db
