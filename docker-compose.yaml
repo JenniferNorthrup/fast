@@ -8,4 +8,4 @@ services:
       - ENV=dev
       - APP_NAME=fastapi-local
     volumes:
-      - ./app:/app/app
+      - ./server:/server/server

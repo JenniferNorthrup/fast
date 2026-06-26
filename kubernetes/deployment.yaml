@@ -46,11 +46,11 @@ spec:
 #  replicas: 3
 #  selector:
 #    matchLabels:
-#      app: fastapi
+#      server: fastapi
 #  template:
 #    metadata:
 #      labels:
-#        app: fastapi
+#        server: fastapi
 #    spec:
 #      containers:
 #        - name: api

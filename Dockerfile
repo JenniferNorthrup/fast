@@ -12,7 +12,7 @@ WORKDIR /app
 COPY --from=builder /install /usr/local
 
 # Copy application code
-COPY ./app ./app
+COPY app ./app
 
 # Environment variables (typical in ECS/EKS)
 ENV PYTHONUNBUFFERED=1 \
